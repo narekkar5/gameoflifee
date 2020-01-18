@@ -13,7 +13,7 @@ var grassEater = [];
 var gishatich = [];
 var myfirsthero = [];
 var mysecondhero = [];
-var eatererkrordqanak = 15;
+var eatererkrordqanak = 25;
 var side = 50;
 
 
@@ -21,7 +21,7 @@ function setup() {
   frameRate(5)
   for (var i = 0; i < 20; i++) {
     matrix[i] = [];
-    for (var k = 0; k < 40; k++) {
+    for (var k = 0; k < 30; k++) {
       matrix[i][k] = Math.round(random(0, 5));
     }
   }
