@@ -1,4 +1,6 @@
-class GishaticKarmir extends LivingCreature {
+let LivingCreature = require('./LivingCreature');
+
+module.exports = class GishaticKarmir extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 15;
@@ -22,8 +24,8 @@ class GishaticKarmir extends LivingCreature {
     mul() {
 
         this.multiplygishatic++;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var emptyCells = super.chooseCell(0);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         // console.log(emptyCells);        
         if (newCell && this.multiplygishatic >= 12) {
             var newX = newCell[0];
@@ -35,8 +37,8 @@ class GishaticKarmir extends LivingCreature {
         }
     }
     eat() {
-        let emptyCells = this.chooseCell(2)
-        let eater = random(emptyCells);
+        let emptyCells = super.chooseCell(2)
+        var eater = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (eater) {
             let newX = eater[0]
             let newY = eater[1]
@@ -58,8 +60,8 @@ class GishaticKarmir extends LivingCreature {
         }
     }
     move() {
-        let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let emptyCells = super.chooseCell(0)
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]

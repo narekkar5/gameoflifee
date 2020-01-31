@@ -1,5 +1,5 @@
-
-class MyHeroTwo extends LivingCreature {
+let LivingCreature = require('./LivingCreature');
+module.exports = class MyHeroTwo extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = 8;
@@ -21,8 +21,8 @@ class MyHeroTwo extends LivingCreature {
             return super.chooseCell(character);
     }
     move() {
-        let emptyCells = this.chooseCell(0)
-        let newCell = random(emptyCells)
+        let emptyCells = super.chooseCell(0)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -37,8 +37,8 @@ class MyHeroTwo extends LivingCreature {
         }
     }
     eat() {
-        let emptyCells = this.chooseCell(4)
-        let secondher = random(emptyCells);
+        let emptyCells = super.chooseCell(4)
+        let secondher = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (secondher) {
             let newX = secondher[0]
             let newY = secondher[1]
@@ -57,8 +57,8 @@ class MyHeroTwo extends LivingCreature {
             console.log("kera")
         }
         else {
-            let emptyCells = this.chooseCell(1)
-            let second = random(emptyCells);
+            let emptyCells = super.chooseCell(1)
+            let second = emptyCells[Math.floor(Math.random() * emptyCells.length)]
             if (second) {
                 let newX = second[0]
                 let newY = second[1]
@@ -81,8 +81,8 @@ class MyHeroTwo extends LivingCreature {
     mul() {
 
         this.multiplysecondhero++;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var emptyCells = super.chooseCell(0);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         // console.log(emptyCells);        
         if (newCell && this.multiplysecondhero >= 10) {
             var newX = newCell[0];
